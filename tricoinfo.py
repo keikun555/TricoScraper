@@ -1,8 +1,12 @@
+"""Information necessary for the trico.haverford.edu scraper
+
+Written by Kei Imada
+
+Last modified 20180815
+
 """
-Kei Imada
-20180815
-Scraper for trico.haverford.edu
-"""
+
+
 import bs4
 import certifi
 import urllib3 as urllib
@@ -10,6 +14,16 @@ from tricoglobals import TRICO_URL
 
 
 class TricoInfo(object):
+    """Information necessary for the scraper
+
+    Attributes:
+        semesters (list of strings): all possible semesters
+        campuses (list of strings): all possible campuses
+        departments (list of strings): all possible departments
+        meetdays (list of strings): all possible meetdays
+        meettimes (list of strings): all possible meettimes
+
+    """
     def __init__(self, trico_url=TRICO_URL, ssl=True):
         if ssl:
             http = urllib.PoolManager(cert_reqs='CERT_REQUIRED',
