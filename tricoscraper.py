@@ -168,8 +168,16 @@ class TricoScraper(object):
 
 def main():
     import json
-    ts = TricoScraper()
-    print(json.dumps(ts.search(smstr=['Fall_2018'])))
+    from time import time
+    ts1 = TricoScraper(num_threads=1)
+    tsa = TricoScraper()
+    one_start = time()
+    ts1.search()
+    one_duration = time() - one_start
+    all_start = time()
+    tsa.search()
+    all_duration = time() - all_start
+    print(one_duration, 'vs', all_duration)
 
 
 if __name__ == '__main__':
